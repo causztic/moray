@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20160422160455) do
 
   create_table "environments", force: :cascade do |t|
     t.string   "water_temperature"
-    t.float    "depth"
+    t.float    "sea_depth"
+    t.float    "dissolved_oxygen"
     t.float    "salinity"
-    t.integer  "operation_id"
+    t.integer  "catch_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
