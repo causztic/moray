@@ -1,6 +1,6 @@
 class DataController < ApplicationController
-  
-  def create
+
+  def new
   end
 
 end
