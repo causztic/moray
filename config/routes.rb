@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
   mount Knock::Engine => "/knock"
-  root 'main#index'
+  resources :operation, only: [:show], defaults: { format: 'json' } do
+    resources :catches, only: [:show, :index], defaults: { format: 'json' } do
+      resources :specimen, only: [:show, :index], defaults: { format: 'json '}
+    end
+  end
+
+  root "main#index"
+  post "create", controller: "data"
+  
 end

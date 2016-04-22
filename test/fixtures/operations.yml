@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  phone_number: MyString
+  email: MyString
+  license: MyString
+  country: MyString
+  vessel_name: MyString
+  vessel_gear_type: MyString
+  vessel_characteristics: MyText
+  dealer_company_number: MyString
+  dealer_name: MyString
+  dealer_address: MyString
+  dealer_country: MyString
+
+two:
+  name: MyString
+  address: MyString
+  phone_number: MyString
+  email: MyString
+  license: MyString
+  country: MyString
+  vessel_name: MyString
+  vessel_gear_type: MyString
+  vessel_characteristics: MyText
+  dealer_company_number: MyString
+  dealer_name: MyString
+  dealer_address: MyString
+  dealer_country: MyString
