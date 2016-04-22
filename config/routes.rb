@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
 
   root "main#index"
-  post "create", controller: "data"
+  post "data/new", controller: "data"
   
 end
