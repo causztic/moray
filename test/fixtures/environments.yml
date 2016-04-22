@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  water_temperature: MyString
+  depth: 1.5
+  salinity: 1.5
+
+two:
+  water_temperature: MyString
+  depth: 1.5
+  salinity: 1.5

@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422140143) do
+ActiveRecord::Schema.define(version: 20160422154212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "catches", force: :cascade do |t|
+    t.string   "common_name"
+    t.string   "scientific_name"
+    t.float    "weight"
+    t.integer  "count"
+    t.integer  "operation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "environments", force: :cascade do |t|
+    t.string   "water_temperature"
+    t.float    "depth"
+    t.float    "salinity"
+    t.integer  "operation_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "operations", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +51,17 @@ ActiveRecord::Schema.define(version: 20160422140143) do
     t.string   "dealer_country"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "specimen", force: :cascade do |t|
+    t.integer  "age"
+    t.float    "length"
+    t.float    "weight"
+    t.string   "sex"
+    t.string   "maturity"
+    t.integer  "catch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

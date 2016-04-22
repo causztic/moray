@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  length: 1.5
+  weight: 1.5
+  sex: MyString
+  maturity: MyString
+
+two:
+  age: 1
+  length: 1.5
+  weight: 1.5
+  sex: MyString
+  maturity: MyString

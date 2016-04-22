@@ -9,7 +9,7 @@ class CreateOperations < ActiveRecord::Migration
       t.string :country
       t.string :vessel_name
       t.string :vessel_gear_type
-      t.text :vessel_characteristics
+      t.text   :vessel_characteristics
       t.string :dealer_company_number
       t.string :dealer_name
       t.string :dealer_address
