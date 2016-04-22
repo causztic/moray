@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160422160455) do
   end
 
   create_table "environments", force: :cascade do |t|
-    t.string   "water_temperature"
+    t.float   "water_temperature"
     t.float    "sea_depth"
     t.float    "dissolved_oxygen"
     t.float    "salinity"
