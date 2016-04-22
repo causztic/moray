@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20160422160455) do
     t.string   "dealer_country"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.jsonb    "coordinates"
+    t.jsonb    "coordinates",            array: true
     t.date     "start_date"
     t.date     "end_date"
   end
