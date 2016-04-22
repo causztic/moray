@@ -53,8 +53,7 @@ ActiveRecord::Schema.define(version: 20160422160455) do
     t.string   "dealer_country"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.float    "latitude"
-    t.float    "longitude"
+    t.jsonb    "coordinates"
     t.date     "start_date"
     t.date     "end_date"
   end
