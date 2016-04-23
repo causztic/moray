@@ -67,7 +67,7 @@ table
   tbody
     tr 
       td rowspan=18 valign='top' Operation
-      td rowspan=5  user_details
+      td rowspan=5  user
       td name
       td A word or set of words by which a person is known, addressed, or referred to.
       td String
@@ -99,13 +99,13 @@ table
       td String
       td The range may vary based on country.
     tr
-      td type
+      td nature
       td
-      td Type of operation. Could be used by applications to specify what fields to expose to the end-user.
+      td Nature of operation. Could be used by applications to specify what fields to expose to the end-user.
       td String
       td Currently either 'scientific' or 'commercial'
     tr
-      td rowspan=2 vessel_details
+      td rowspan=2 vessel
       td name
       td Registered name of vessel with Maritime Authority.
       td String
@@ -125,7 +125,7 @@ table
         br
         | Has to be in a JSON format and the keys to follow the underscoring naming convention.
     tr
-      td rowspan=4 dealer_information
+      td rowspan=4 dealer
       td company_number
       td Registered Dealer Number as assigned by the organization
       td String
@@ -148,8 +148,8 @@ table
     tr
       td start_datetime
       td
-      td Start of the Date Time Group of Fishing Operation
-      td rowspan=2 String
+      td Start time of the fishing operation
+      td rowspan=2 Date
       td rowspan=2 
         | Within 24 hours of a particular day. 
         br
@@ -162,7 +162,7 @@ table
     tr
       td end_datetime
       td
-      td End of the Date Time Group of Fishing Operation
+      td End time of the fishing operation
     tr
       td rowspan=2 
         | coordinates[]
@@ -179,7 +179,7 @@ table
       td Float
       td e.g. -74.922767
     tr
-      td rowspan=10 valign='top' Catch
+      td rowspan=12 valign='top' Catch
       td rowspan=2 species
       td common_name
       td A layman's definition of naming a certain animal
@@ -202,6 +202,24 @@ table
       td Number of fish of one type of species caught. Expect basic sorting of catch to be done before inputting data
       td Integer
       td Any value larger than 0
+    tr
+      td start_datetime
+      td
+      td Start time for the particular catch sequence conducted in the operation.
+      td rowspan=2 Date
+      td rowspan=2 
+        | Within 24 hours of a particular day. 
+        br
+        | Will be automatically reflected to show current date and time of operation start
+        br
+        | Datetime references are stated with respect to GMT standard.
+        br
+        | YYYY-MM-DDTHH:MM:SSZ
+        | Eg:2016-04-23T02:04:29.535Z
+    tr
+      td end_datetime
+      td
+      td End time for the particular catch sequence conducted in the operation.
     tr
       td rowspan=4 environment (only if scientific operation)
       td water_temperature
@@ -230,7 +248,7 @@ table
       td Float
       td Measured in milligrams/litre. Other measurements should be converted into the specified unit of measurement by the application.
     tr
-      td rowspan=2 market_details
+      td rowspan=2 market (only if commercial operation)
       td fish_ticket_type
       td The code for each state or country from which the fish is being imported from.
       td Integer

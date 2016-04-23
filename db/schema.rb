@@ -17,23 +17,23 @@ ActiveRecord::Schema.define(version: 20160422160455) do
   enable_extension "plpgsql"
 
   create_table "catches", force: :cascade do |t|
-    t.string   "common_name"
-    t.string   "scientific_name"
+    t.string   "species_common_name"
+    t.string   "species_scientific_name"
     t.float    "weight"
     t.integer  "count"
     t.integer  "operation_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "fish_ticket_type"
-    t.string   "fish_ticket_number"
+    t.string   "market_fish_ticket_type"
+    t.string   "market_fish_ticket_number"
   end
 
   create_table "environments", force: :cascade do |t|
     t.float   "water_temperature"
-    t.float    "sea_depth"
-    t.float    "dissolved_oxygen"
+    t.float    "depth"
+    t.float    "dissolved_oxygen_levels"
     t.float    "salinity"
     t.integer  "catch_id"
     t.datetime "created_at",        null: false
@@ -41,12 +41,13 @@ ActiveRecord::Schema.define(version: 20160422160455) do
   end
 
   create_table "operations", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone_number"
-    t.string   "email"
-    t.string   "license"
-    t.string   "country"
+    t.string   "nature"
+    t.string   "user_name"
+    t.string   "user_address"
+    t.string   "user_phone_number"
+    t.string   "user_email"
+    t.string   "user_license"
+    t.string   "user_country_of_origin"
     t.string   "vessel_name"
     t.string   "vessel_gear_type"
     t.text     "vessel_characteristics"
@@ -57,8 +58,8 @@ ActiveRecord::Schema.define(version: 20160422160455) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.jsonb    "coordinates",            array: true
-    t.date     "start_date"
-    t.date     "end_date"
+    t.date     "start_datetime"
+    t.date     "end_datetime"
   end
 
   create_table "specimen", force: :cascade do |t|
@@ -68,13 +69,6 @@ ActiveRecord::Schema.define(version: 20160422160455) do
     t.string   "sex"
     t.string   "maturity"
     t.integer  "catch_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

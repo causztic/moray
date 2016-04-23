@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount Knock::Engine => "/knock"
   resources :operations, only: [:show], defaults: { format: 'json' } do
     get :custom
     resources :catches, only: [:show, :index], defaults: { format: 'json' }, controller: "operations/catches" do
