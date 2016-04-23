@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20160422160455) do
     t.float    "weight"
     t.integer  "count"
     t.integer  "operation_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "fish_ticket_type"
