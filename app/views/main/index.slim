@@ -66,7 +66,7 @@ table
       th Data Description
   tbody
     tr 
-      td rowspan=17 valign='top' Operation
+      td rowspan=18 valign='top' Operation
       td rowspan=5  user_details
       td name
       td A word or set of words by which a person is known, addressed, or referred to.
@@ -98,6 +98,12 @@ table
       td An alphanumeric code unique to each fishing permit issued to registered organizations and enthusiasts.
       td String
       td The range may vary based on country.
+    tr
+      td type
+      td
+      td Type of operation. Could be used by applications to specify what fields to expose to the end-user.
+      td String
+      td Currently either 'scientific' or 'commercial'
     tr
       td rowspan=2 vessel_details
       td name
@@ -181,7 +187,7 @@ table
       td e.g. Tuna
     tr
       td scientific_name
-      td The latin name that defines the lineage of evolution of a species of fish from a genus
+      td The latin name that defines the lineage of evolution of a species of fish from a genus (only if scientific operation)
       td String
       td e.g. Thunnini
     tr
