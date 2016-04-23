@@ -1,1 +1,304 @@
-h1 Moray
+h1 International Fishery Data Standard (IFDS)
+h2 Approach to Data Interoperability
+
+h3 April 2016
+
+h1 Abstract
+
+p This standard is issued by Team Morayy, with references to other multiple data warehouses and standards related but not limited to fisheries around the world. This document is drafted with the purpose of establishing a standard approach to catalogue Fisheries information, for use across government services, non-profit entities and academic researchers to name a few.
+
+h1 Introduction
+p Fisheries information is collected and stored in disparate, proprietary formats and software that prevent immediate interoperability. The challenges faced when collecting data in this way include different date formats, collection techniques, units of measurements, and semantic definitions.
+ 
+p This documentation standard seeks to set a standard set of rules that allows for effective capture and retention of data, allowing for quick comparisons by agencies around the world, or for example, between east and west coast of the United States.
+
+h1 Information Management Framework
+
+p A key initiative of this strategy is the development of an Information Management Framework to support the way Fisheries administers and uses data and information.
+
+p The Framework is a set of standards, policies, guidelines and procedures which are implemented either manually or, where possible, automated through technology. This will allow data and information to be managed in a secure, structured and consistent manner.
+
+p It will ensure that data and information can be appropriately shared or re-used by agencies, individual public sector staff, the community or industry for better services, improved performance management and a more productive public sector.
+
+
+h1 About the Standard
+
+p The framework identifies the need to establish a standard information gathering and storage approach for use by agencies and governments around the world. The architecture comprises data standards supporting interoperability and exchange across the broad spectrum of information captured, which provides a common language for agencies to interact with. This allows them to appropriately search, share or compare data managed across diverse systems. 
+
+p Data interoperability is the ability to correctly  interpret data across different systems or organisational boundaries. Interoperability standards facilitate a common understanding of the data meaning and usage between systems and across agencies – providing clarity in plain English or familiar business language.
+
+p In particular, this will include agreed data definitions for fields or elements that are commonly exchanged and used across multiple agencies. It may also involve modelling of key entities, relationships and dependencies, where this supports data sharing and shared service delivery.
+
+p Based on current data fields collected, the data collection can be broadly classified into 3 main Content Types:
+ul
+  li Operation – The information regarding the functioning of all registered Fishery organizations such as but not limited to Permits/Registrations, Vessel Details.
+  li Catch – A record of the type and quantity of fish caught by the Fishery organization 
+  li Specimen – Details such as but not limited to length, weight, age about individual fish caught.
+
+
+h1 Benefits
+
+h2 Benefits of standard approach to information architecture include:
+
+ul
+  li Enhanced interoperability: disparate datasets can be brought together and integrated into a single view for analysis or presentation;
+  li Enhanced accessibility to services: enable fishermen and organizations to interact with multiple agencies through a single interface;
+  li Improved decision making: identify trends or relationships, enable the development of evidence-based policy, support planning and targeted conservation schemes;
+  li Reduction in administrative costs: streamline reporting, reduce duplication through appropriate sharing and re-use of information assets.
+
+h1 Implementation  
+
+p The standards modelled after the exsisting standards published by IEEE, for example, will act as considerations while designing the database. The standards will define the vocabulary, data types, acceptable ranges/enumerations values, structure, and the formats of each of the content types.
+
+b Details are as follows:
+
+table
+  tr
+    th Content Type
+    th Data Fields
+    th Sub-Fields
+    th Definition
+    th Data Type
+    th Range of Values
+    th Format
+  tr 
+    td rowspan=16 Operation
+    td rowspan=5  user_details
+    td name
+    td A word or set of words by which a person is known, addressed, or referred to.
+    td String
+    td
+    td
+  tr
+    td address
+    td A postage address of the independent fisherman or fishery organization for record purposes
+    td String
+    td
+    td
+  tr
+    td phone_number
+    td Contact Number to reach the person concerned
+    td String
+    td
+    td
+  tr
+    td country_of_origin
+    td Citizenship of the person concerned. Follows ISO_3166-1 Alpha-2 code
+    td String
+    td List of values from ISO_3166-1 Alpha-2 Codes.
+    td XX
+  tr
+    td email
+    td Email address to contact person concerned
+    td String
+    td
+    td johnsmith@mail.com
+  tr
+    td license
+    td
+    td An alphanumeric code unique to each fishing permit issued to registered organizations and enthusiasts.
+    td String
+    td The range may vary based on country.
+    td
+  tr
+    td rowspan=2 vessel_details
+    td name
+    td Registered name of vessel with Maritime Authority.
+    td String
+    td
+    td
+  tr
+    td gear_type
+    td Type of fishing gear used to fish, such as but not limited to Surroundings Nets, Seines, Trawls, Traps, Falling Gear.
+    td String
+    td
+    td
+  tr
+    td characteristics
+    td Unique decernable characteristics of the vessal that aids in easy identification.
+    td String
+    td Eg: colour of vessel, engine horsepower, dimension of vessel. 
+    td Has to be in a JSON format and the keys to follow the underscoring naming convention.
+  tr
+    td rowspan=4 dealer_information
+    td company_number
+    td Registered Dealer Number as assigned by the organization
+    td String
+    td
+    td
+  tr
+    td name
+    td Name of Dealer, either company or independent person as applicable
+    td String
+    td
+    td
+  tr
+    td address
+    td A postage address of the Dealer organization for record purposes
+    td String
+    td
+    td
+  tr
+    td country
+    td Name of Country of Business that the Dealer is based in. Follows ISO_3166-1 Alpha-2 code
+    td String
+    td List of values from ISO_3166-1 Alpha-2 Codes.
+    td XX
+  tr
+    td start_datetime
+    td
+    td Start of the Date Time Group of Fishing Operation
+    td rowspan=2 String
+    td rowspan=2 Within 24 hours of a particular day. Will be automatically reflected to show current date and time of operation start
+    td rowspan=2 
+      | Datetime references are stated with respect to GMT standard.
+      | YYYY-MM-DDTHH:MM:SSZ
+      | Eg:2016-04-23T02:04:29.535Z
+  tr
+    td end_datetime
+    td
+    td End of the Date Time Group of Fishing Operation
+    td
+    td
+    td
+  tr
+    td rowspan=2 coordinates[]
+    td latitude 
+    td Latitude is an angle which ranges from 0° at the Equator to 90° (North or South) at the poles. The application using this standard should however convert it into the form of degrees.
+    td Float
+    td
+    td 42.700149
+  tr
+    td
+    td longitude
+    td Longitude is the angular distance, in degrees, minutes, and seconds, of a point east or west of the Prime (Greenwich) Meridian. The application using this standard should however convert it into the form of degrees.
+    td Float
+    td
+    td -74.922767
+  tr
+    td rowspan=10 Catch
+    td rowspan=2 species
+    td common_name
+    td A layman's definition of naming a certain animal
+    td String
+    td
+    td Tuna
+  tr
+    td
+    td
+    td scientific_name
+    td The latin name that defines the lineage of evolution of a species of fish from a genus
+    td String
+    td
+    td Thunnini
+  tr
+    td weight
+    td
+    td The numerical total weight of the fish of a particular species caught. It should be stored in kg; applications should convert lbs into kg before saving it to the database.
+    td Float
+    td Any value larger than 0
+  tr
+    td count
+    td
+    td Number of fish of one type of species caught. Expect basic sorting of catch to be done before inputting data
+    td Integer
+    td Any value larger than 0
+    td
+  tr
+    td rowspan=4 environment (only if scientific operation)
+    td water_temperature
+    td The degree of hotness or coldness of a body, measured to 4 decimal points
+    td Float
+    td 
+    td Measured in Celsius scale to a 4 decimal place of accuracy. Applications should convert other units of measurements into Celsius.
+  tr
+    td
+    td depth
+    td Distance of the seafloor from the water surface
+    td Float
+    td Any value larger than 0
+    td Measured in metres. Applications should convert other units of measurements into metres.
+  tr
+    td
+    td salinity
+    td Degree of dissolved salt content in a body of water
+    td Float
+    td
+    td It is measured in unit of PSU (Practical Salinity Unit), a unit based on the properties of sea water conductivity. It is equivalent to per thousand or (o/00) or to g/kg.
+  tr
+    td
+    td dissolved_oxygen_levels
+    td Dissolved oxygen (DO) refers to microscopic bubbles of gaseous oxygen (O2) that are mixed in water and available to aquatic organisms for respiration—a critical process for almost all organisms.
+    td Float
+    td
+    td Measured in milligrams/litre. Other measurements should be converted into the specified unit of measurement by the application.
+  tr
+    td rowspan=2 market_details
+    td fish_ticket_type
+    td The code for each state or country from which the fish is being imported from.
+    td Integer
+    td
+    td Format will follow those listed here: https://www.adfg.alaska.gov/static/license/fishing/pdfs/elanding_codes.pdf
+  tr
+    td
+    td fish_ticket_number
+    td A unique 9 digit number that identifies the generated Fish Ticket for commercial purposes, managed by US State. The length of the digits can increase if the capacity is reached.
+    td Integer
+    td
+    td a Unique 9 digit code.
+  tr
+    td rowspan=5 specimen (only if scientific operation)
+    td length
+    td
+    td Defined as the distance from the mouth of the fish till the end of the tail fin
+    td
+    td Measured in metres. Other measurements should be converted before saving.
+  tr
+    td
+    td age
+    td
+    td Determined in years by counting natural growth rings on the scales,eye lenses, vertebrate, fin spines.
+    td Integer
+    td
+    td Measured in years
+  tr
+    td weight
+    td
+    td
+    td Float
+    td
+    td
+  tr
+    td sex
+    td
+    td
+    td char[1]
+    td M, F
+    td Either 'M' or 'F'
+  tr
+    td maturity
+    td
+    td Defined as the individual stages of a fish before spawning
+    td String
+    td Resting phase, Early maturing phase, Advanced maturing phase, Prespawing phase, Spawning phase, or Spent phase
+    td One of the values specified.
+
+h1 Note: Agencies are expected to refer to the Framework, and use the standards outlined as they are relevant to a specific project.
+
+
+h1 Data Structure
+div
+  | Operation: {
+  |  Catches: [{
+  |    Environment: {
+  |    }
+  |    Specimen: [{
+  |      }]
+  |    }]
+  |  }
+
+h1 Future Updates
+p Let this framework acts a guideline for users who want to be able to extend and modify the program according to their individual needs.
+
+h1 Review
+p This standard will be maintained by the Fishackathon group. The standard is subject to review at least every two years, or as appropriate.
